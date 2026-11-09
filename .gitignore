@@ -1,0 +1,13 @@
+# Datos privados: nunca al repositorio
+app/config.php
+PRODUCT.md
+.impeccable/
+.claude/
+
+# Fotos subidas por clientes
+uploads/*
+!uploads/.htaccess
+
+# Sistema
+.DS_Store
+Thumbs.db

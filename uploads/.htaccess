@@ -1,0 +1,12 @@
+# Las fotos se sirven como imágenes y nada aquí se ejecuta
+Options -Indexes
+<FilesMatch "\.(php|phtml|php\d|phar|cgi|pl|py|sh|htaccess)$">
+  Require all denied
+</FilesMatch>
+<IfModule mod_php.c>
+  php_flag engine off
+</IfModule>
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>

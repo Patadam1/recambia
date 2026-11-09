@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solicitud recibida · Recambia</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="brand" href="./">Recambia</a></div></header>
+<main class="legal">
+  <div class="wrap">
+    <div class="done" id="ok">
+      <div class="done-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16181B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h1 class="display">¡Recibido!</h1>
+      <p>Tu número de solicitud es <span class="ref" id="ref"></span></p>
+      <p>Te hemos enviado un correo de confirmación. Si no lo ves, mira en la carpeta de spam.</p>
+      <a class="btn btn-ink" href="./">Volver al inicio</a>
+    </div>
+    <div class="done" id="ko" hidden>
+      <h1 class="display">Algo ha fallado</h1>
+      <p>No hemos podido enviar tu solicitud. Vuelve atrás y revisa los datos, o escríbenos a <a href="mailto:hola@recambia.es">hola@recambia.es</a>.</p>
+      <a class="btn btn-ink" href="./#pedir">Volver al formulario</a>
+    </div>
+  </div>
+</main>
+<script>
+  var p = new URLSearchParams(location.search);
+  if (p.get('error')) { document.getElementById('ok').hidden = true; document.getElementById('ko').hidden = false; }
+  else { document.getElementById('ref').textContent = '#' + (p.get('ref') || '').replace(/[^A-Z0-9-]/g, ''); }
+</script>
+</body>
+</html>
